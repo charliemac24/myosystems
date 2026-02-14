@@ -21,6 +21,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackToTop } from "@/components/back-to-top";
 import { PricingSection } from "@/components/pricing-section";
+import { AttendanceEnquiryForm } from "@/components/attendance-enquiry-form";
 
 const productSubNav = [
   { label: "Overview", href: "#overview" },
@@ -121,10 +122,17 @@ export default function AttendanceMonitoringSmsProductPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button asChild data-testid="button-product-hero-cta">
-                  <Link href="/contact">
+                  <a
+                    href="#product-enquiry"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById("product-enquiry");
+                      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                  >
                     Inquire Now
                     <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
+                  </a>
                 </Button>
                 <Button variant="outline" asChild>
                   <a href="#pricing">View Pricing</a>
@@ -266,6 +274,22 @@ export default function AttendanceMonitoringSmsProductPage() {
             window.location.href = "/contact";
           }}
         />
+
+        <section id="product-enquiry" className="py-16 sm:py-20 bg-card/50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                Attendance Monitoring + SMS Enquiry
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Tell us about your school setup and communication needs. We&apos;ll recommend the right configuration and rollout plan.
+              </p>
+              <Card className="p-6 sm:p-8 border-border/40 bg-card/70">
+                <AttendanceEnquiryForm />
+              </Card>
+            </div>
+          </div>
+        </section>
 
         <section className="py-16 sm:py-20 bg-card/50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">

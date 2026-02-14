@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackToTop } from "@/components/back-to-top";
-import { InquiryForm } from "@/components/inquiry-form";
+import { ContactForm } from "@/components/contact-form";
 
 export default function ContactPage() {
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ContactPage() {
               </p>
 
               <Card className="p-6 sm:p-8 border-border/40 bg-card/70">
-                <InquiryForm />
+                <ContactForm />
               </Card>
             </div>
           </div>

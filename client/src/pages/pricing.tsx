@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BackToTop } from "@/components/back-to-top";
 import { PricingSection } from "@/components/pricing-section";
-import { InquiryForm } from "@/components/inquiry-form";
+import { ContactForm } from "@/components/contact-form";
 
 function PricingDetails() {
   return (
@@ -78,7 +78,7 @@ export default function PricingPage() {
                 Share your details and we&apos;ll follow up with recommended onboarding steps.
               </p>
               <Card className="p-6 sm:p-8 border-border/40 bg-card/70">
-                <InquiryForm selectedTier={selectedTier} />
+                <ContactForm defaultInquiryType={selectedTier ? `Pricing - ${selectedTier}` : "Pricing"} />
               </Card>
             </div>
           </div>

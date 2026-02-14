@@ -91,14 +91,50 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
-  httpServer.listen(
-    {
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    },
-    () => {
-      log(`serving on port ${port}`);
-    },
-  );
+  // In local development macOS often occupies 5000 (Control Center). If PORT is
+  // not manually set, try the next few ports instead of crashing.
+  const tryListen = async (startPort: number) => {
+    let attemptPort = startPort;
+
+    for (let i = 0; i < 5; i++) {
+      try {
+        await new Promise<void>((resolve, reject) => {
+          const onError = (err: any) => {
+            httpServer.off("error", onError);
+            reject(err);
+          };
+
+          httpServer.once("error", onError);
+          httpServer.listen(
+            {
+              port: attemptPort,
+              host: "0.0.0.0",
+              // reusePort triggers ENOTSUP on macOS; leave off unless explicitly enabled
+              reusePort: process.env.REUSE_PORT === "true",
+            },
+            () => {
+              httpServer.off("error", onError);
+              resolve();
+            },
+          );
+        });
+
+        log(`serving on port ${attemptPort}`);
+        return;
+      } catch (err: any) {
+        if (err.code !== "EADDRINUSE" || process.env.PORT) {
+          throw err;
+        }
+
+        log(`port ${attemptPort} in use, trying ${attemptPort + 1}`);
+        attemptPort += 1;
+      }
+    }
+
+    throw new Error(
+      `Could not bind to ports ${startPort}-${startPort + 4}. Set PORT to a free port.`,
+    );
+  };
+
+  await tryListen(port);
 })();
