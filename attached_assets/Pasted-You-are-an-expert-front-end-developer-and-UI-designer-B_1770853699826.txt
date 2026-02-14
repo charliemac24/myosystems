@@ -1,0 +1,168 @@
+You are an expert front-end developer and UI designer. Build a ONE-PAGE website for “MYO Systems” using ONLY a single HTML file (no separate CSS/JS files). The output must be a single file named: index.html.
+
+REQUIREMENTS
+- Single HTML file only (all CSS in a <style> tag, all JS in a <script> tag at the bottom).
+- No frameworks (no React/Next/Tailwind/Bootstrap). Vanilla HTML/CSS/JS only.
+- Premium, high-end theme (clean, confident, modern). Avoid “gamer neon” vibes. Use subtle accent styling that feels upscale.
+- Responsive, mobile-first, professional and premium look.
+- Smooth scrolling for nav links.
+- Sticky top navbar with CTA button “Request a Demo”.
+- The messaging “Modernize Your Operations” must be CLEAR and CONSISTENT across the page. It should read as the core promise:
+  - Mention it prominently in the hero
+  - Reinforce it in the Company Snapshot
+  - Tie it explicitly to the product outcomes (less manual work, more visibility, reliable reporting)
+  - Echo it again near the footer
+- Sections in this order:
+  1) Hero
+  2) Company Snapshot
+  3) Products (flagship product card)
+  4) Problem
+  5) How It Works
+  6) Features
+  7) Sample SMS
+  8) Why Schools Choose Us
+  9) About (Company + Founder)
+  10) Contact / Demo (form)
+  11) Footer
+- Use semantic HTML (header, main, section, footer), one H1 only.
+- Add basic SEO meta tags (title, description, OG tags).
+- Use accessible color contrast and focus states.
+- Add subtle animations (fade/slide on scroll) using small vanilla JS + CSS (IntersectionObserver).
+- Provide a clean layout: max-width container, cards with soft borders, subtle highlight, tasteful shadows, premium spacing.
+- Use system fonts or Google Fonts via <link> (allowed). Choose a modern premium font pairing (e.g., Inter + Sora or Inter + DM Sans).
+- Include a hero “portrait” placeholder on the right side (do NOT embed real image). Use:
+  <img src="founder.png" alt="Charlie, Founder and Lead Developer" />
+  and style it as a premium framed image with a subtle accent edge (not too bright). (Assume founder.png will be in same folder.)
+- Include a “Products” card for:
+  “MYO Attendance + SMS Alerts (for Schools)”
+- Contact form should not require a backend. Implement a simple JS handler that:
+  - Validates required fields
+  - On submit, shows an inline success message: “Thanks! Your request has been received. We’ll get back to you soon.”
+  - Does NOT actually send anything.
+- Add a “Back to top” small button that appears after scrolling down.
+- Ensure all copy matches the content provided below exactly (you may adjust minor punctuation/line breaks but keep meaning and structure).
+
+COPY TO USE (ensure the “Modernize Your Operations” context is clear)
+
+NAV LINKS:
+Products • How It Works • Features • Why Schools Choose Us • About • Contact
+CTA: Request a Demo
+
+HERO:
+Eyebrow: MYO SYSTEMS
+Kicker line (prominent): Modernize Your Operations
+H1: Software systems built for real-world operations.
+Subheadline:
+Modernize Your Operations with MYO Systems—practical, automation-first software that replace manual workflows with clear, dependable systems.
+Our flagship product, MYO Attendance + SMS Alerts, modernizes school gate attendance and parent communication by logging entry/exit in seconds and sending real-time SMS notifications—so schools stay organized and families stay informed.
+Buttons: Explore Our Product, Request a Demo
+Micro trust line: Less manual work • More visibility • Reliable reporting
+
+COMPANY SNAPSHOT:
+Title: What MYO Systems does
+Paragraph:
+Modernize Your Operations with software that replaces manual workflows with clear, dependable systems. Our focus is simple: reduce admin work, improve visibility, and deliver tools that stay reliable long after launch.
+Bullets:
+- Workflow-first software built around daily operations
+- Automation that improves consistency and reduces repetitive tasks
+- Secure, maintainable builds designed for long-term use
+- Clear reporting and admin-friendly dashboards
+
+PRODUCTS:
+Title: Products by MYO Systems
+Product Card Title: MYO Attendance + SMS Alerts (for Schools)
+Product Card Text:
+Modernize Your Operations at the school gate: automate attendance using ID tap scanning and instantly notify parents when a student enters or leaves campus.
+Product Bullets:
+- Tap-to-attend (Entry + Exit)
+- Real-time SMS notifications to parents/guardians
+- Admin dashboard with logs, filters, and exports
+CTA: Request a Demo
+Optional small line:
+More products are coming—built with the same focus on reliability and real-world workflows.
+
+PROBLEM:
+Title: Attendance shouldn’t be stressful—for staff or parents.
+Paragraph:
+Manual attendance logs and delayed updates create confusion. Staff lose time reconciling records, and parents worry when there’s no confirmation. MYO Attendance + SMS Alerts modernizes daily attendance by keeping the process fast at the gate and clear for everyone.
+Pain points:
+- Manual logging is slow during peak gate hours
+- Records can become inconsistent over time
+- Parents don’t get real-time confirmation
+- Monthly reporting becomes a manual task
+
+HOW IT WORKS:
+Title: How MYO Attendance + SMS Alerts works
+Step 1: Student taps ID at the gate — Entry/exit is recorded instantly with timestamp and event type.
+Step 2: Parent receives an SMS alert — Parents get notified seconds after the tap—arrival and departure.
+Step 3: Admin dashboard stays updated — Logs are searchable and export-ready anytime.
+Mini flow line: Tap → Record → Notify → Report
+
+FEATURES:
+Title: Built for real school operations
+Features:
+1. Entry + Exit Tracking — consistent arrival/departure logs
+2. Real-time SMS Alerts — instant updates to parents/guardians
+3. Admin Dashboard — filter by date, student, grade/section
+4. Student & Guardian Management — organized contact records
+5. Reports & Export — download logs for admin/reporting needs
+6. Reliable & Secure — stable performance and controlled access
+
+SAMPLE SMS:
+Title: What parents receive (customizable)
+Examples:
+- [School Name]: {Student Name} entered campus at {Time}.
+- [School Name]: {Student Name} left campus at {Time}.
+Note:
+Sender name and message format can be customized to match your school’s preference.
+
+WHY SCHOOLS CHOOSE US:
+Title: Why schools choose MYO
+Bullets:
+- Fast at the gate — designed for busy entry times
+- Less admin workload — fewer manual checks and reconciliations
+- Parent peace of mind — real-time confirmation via SMS
+- Cleaner reporting — export-ready logs anytime
+- Built to expand — future-ready for additional school modules
+
+ABOUT:
+Title: About MYO Systems
+Company copy:
+MYO Systems is focused on building practical software products that modernize daily operations. We prioritize clarity, reliability, and maintainable builds—so your tools stay useful long after launch.
+Founder block:
+Hi, I’m Charlie, founder and lead developer of MYO Systems. I build reliable software products designed around real workflows. MYO Attendance + SMS Alerts was created to modernize school gate attendance while keeping parents informed in real time—simple for staff, clear for admins, and reassuring for families.
+Values:
+- Clarity over complexity
+- Automation that lasts
+- Secure, maintainable systems
+
+CONTACT:
+Title: Request a demo
+Paragraph:
+Want to modernize your school’s attendance and parent notifications with MYO Attendance + SMS Alerts? Send a message and we’ll schedule a short demo. We’ll cover your gate flow, student count, and SMS preferences.
+Form fields:
+- School Name (required)
+- Contact Person (required)
+- Email / Mobile (required)
+- Estimated Student Count (optional)
+- Message (required)
+Submit button: Request a Demo
+Success message text:
+Thanks! Your request has been received. We’ll get back to you soon.
+Small note:
+Quick walkthrough + Q&A. No pressure.
+
+FOOTER:
+© {Year} MYO Systems. All rights reserved.
+Footer tagline (small): Modernize Your Operations
+Privacy • Terms (just placeholders, no separate pages)
+
+STYLE DIRECTION
+- Premium dark/charcoal palette with soft gradients and tasteful highlights.
+- Accents should feel upscale (subtle, restrained, not overly bright).
+- Cards: soft border, slight blur/glass feel (subtle), elegant shadows.
+- Buttons: premium primary + refined secondary outline.
+- Ensure it looks great on mobile and desktop.
+
+OUTPUT
+Return ONLY the full contents of index.html in one code block. Do not include explanations.
