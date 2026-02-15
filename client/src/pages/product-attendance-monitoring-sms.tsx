@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -90,7 +90,7 @@ const faqItems = [
   },
   {
     q: "What if we exceed the included SMS credits?",
-    a: "Additional SMS usage continues without interruption and is billed at ?1.50 per SMS.",
+    a: "Additional SMS usage continues without interruption and is billed at \u20B11.50 per SMS.",
   },
   {
     q: "Can this work for larger student populations later?",
@@ -99,9 +99,38 @@ const faqItems = [
 ];
 
 export default function AttendanceMonitoringSmsProductPage() {
+  const [selectedTier, setSelectedTier] = useState("");
+
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tier = params.get("tier");
+    if (tier) {
+      setSelectedTier(tier);
+    }
+
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+        return;
+      }
+    }
+
     window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
+
+  const handleSelectPricingTier = (tier: string) => {
+    setSelectedTier(tier);
+    const params = new URLSearchParams(window.location.search);
+    params.set("tier", tier);
+    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}#product-enquiry`);
+
+    const formSection = document.getElementById("product-enquiry");
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -109,8 +138,9 @@ export default function AttendanceMonitoringSmsProductPage() {
       <SiteHeader currentPath="/products/attendance-monitoring-sms" />
 
       <main className="relative pt-16">
-        <section id="overview" className="py-20 sm:py-28">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <section id="overview" className="relative overflow-hidden py-20 sm:py-28">
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(900px_360px_at_15%_10%,rgba(56,189,248,0.20),transparent_65%),linear-gradient(to_bottom,rgba(59,130,246,0.12),transparent_70%)]" />
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
             <div className="max-w-3xl">
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">MYO Systems Product</p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-foreground mb-6">
@@ -270,9 +300,7 @@ export default function AttendanceMonitoringSmsProductPage() {
           title="Pricing"
           description="Choose a plan based on student population and monthly SMS volume."
           ctaLabel="Talk to Us"
-          onSelectTier={() => {
-            window.location.href = "/contact";
-          }}
+          onSelectTier={handleSelectPricingTier}
         />
 
         <section id="product-enquiry" className="py-16 sm:py-20 bg-card/50">
@@ -285,7 +313,7 @@ export default function AttendanceMonitoringSmsProductPage() {
                 Tell us about your school setup and communication needs. We&apos;ll recommend the right configuration and rollout plan.
               </p>
               <Card className="p-6 sm:p-8 border-border/40 bg-card/70">
-                <AttendanceEnquiryForm />
+                <AttendanceEnquiryForm prefilledTier={selectedTier} />
               </Card>
             </div>
           </div>

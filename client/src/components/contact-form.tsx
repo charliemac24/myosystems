@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2 } from "lucide-react";
+import { HoneypotField } from "@/components/honeypot-field";
 
 const inquiryTypes = [
   "General Question",
@@ -94,7 +95,7 @@ export function ContactForm({ defaultInquiryType = "" }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" data-testid="form-contact">
-      <input type="text" name="companyWebsite" className="hidden" tabIndex={-1} autoComplete="off" />
+      <HoneypotField />
       <input type="hidden" name="selectedTier" value={defaultInquiryType} />
       <input type="hidden" name="sourceUrl" value={sourceUrl} />
 

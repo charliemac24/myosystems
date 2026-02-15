@@ -36,7 +36,7 @@ export const attendanceEnquirySchema = z.object({
   cityProvince: z.string().min(1, "City/Province is required"),
   email: z.string().email("Valid email is required"),
   phone: z.string().min(5, "Phone is required"),
-  estimatedStudents: z.enum(["100", "250", "500", "1000+"]),
+  estimatedStudents: z.enum(["100", "250", "400", "500", "1000+"]),
   highSchool: z.enum(["yes", "no"]),
   message: z.string().min(1, "Message is required"),
   sourceUrl: z.string().url().optional(),

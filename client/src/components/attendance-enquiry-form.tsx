@@ -6,14 +6,25 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2 } from "lucide-react";
+import { HoneypotField } from "@/components/honeypot-field";
 
 const roles = ["Owner", "Admin", "IT", "Teacher"] as const;
-const studentOptions = ["100", "250", "500", "1000+"] as const;
+const studentOptions = ["100", "250", "400", "500", "1000+"] as const;
 const highSchoolOptions = ["yes", "no"] as const;
 
 type Errors = Record<string, string>;
 
-export function AttendanceEnquiryForm() {
+const tierToEstimatedStudents: Record<string, string> = {
+  Starter: "100",
+  Standard: "250",
+  Pro: "400",
+};
+
+type AttendanceEnquiryFormProps = {
+  prefilledTier?: string;
+};
+
+export function AttendanceEnquiryForm({ prefilledTier = "" }: AttendanceEnquiryFormProps) {
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -21,12 +32,22 @@ export function AttendanceEnquiryForm() {
   const [sourceUrl, setSourceUrl] = useState("");
 
   const [role, setRole] = useState<string>("");
-  const [estimatedStudents, setEstimatedStudents] = useState<string>("");
+  const [estimatedStudents, setEstimatedStudents] = useState<string>(
+    tierToEstimatedStudents[prefilledTier] || "",
+  );
   const [highSchool, setHighSchool] = useState<string>("");
 
   useEffect(() => {
     setSourceUrl(window.location.href);
   }, []);
+
+  useEffect(() => {
+    if (!prefilledTier) return;
+    const mapped = tierToEstimatedStudents[prefilledTier];
+    if (mapped) {
+      setEstimatedStudents(mapped);
+    }
+  }, [prefilledTier]);
 
   const validate = (form: FormData) => {
     const newErrors: Errors = {};
@@ -102,7 +123,7 @@ export function AttendanceEnquiryForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" data-testid="form-attendance-enquiry">
-      <input type="text" name="companyWebsite" className="hidden" tabIndex={-1} autoComplete="off" />
+      <HoneypotField />
       <input type="hidden" name="sourceUrl" value={sourceUrl} />
 
       <div className="grid sm:grid-cols-2 gap-4">

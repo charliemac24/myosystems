@@ -82,6 +82,15 @@ export function PricingSection({
             </article>
           ))}
         </div>
+
+        <div className="rounded-2xl border border-border/60 bg-card/50 p-6 sm:p-8 mt-8">
+          <h3 className="text-2xl sm:text-3xl font-semibold mb-6">How SMS credits work</h3>
+          <ul className="space-y-3 text-sm sm:text-base text-muted-foreground">
+            <li>Attendance logging is unlimited. SMS credits are used only when notifications are sent.</li>
+            <li>Default notifications are First IN + Final OUT (to avoid excessive SMS during multiple entries/exits).</li>
+            <li>Schools can request All Movements, Digest, or per-student daily SMS caps.</li>
+          </ul>
+        </div>
       </div>
     </section>
   );

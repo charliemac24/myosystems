@@ -19,6 +19,18 @@ export function SiteHeader({ currentPath }: SiteHeaderProps) {
   }, []);
 
   const closeMenu = () => setMobileOpen(false);
+  const handleNavClick = (event: React.MouseEvent, href: string) => {
+    const [path, hash] = href.split("#");
+
+    if (hash && currentPath === path) {
+      event.preventDefault();
+      const target = document.getElementById(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.replaceState(null, "", `#${hash}`);
+      }
+    }
+  };
 
   return (
     <header
@@ -35,11 +47,13 @@ export function SiteHeader({ currentPath }: SiteHeaderProps) {
 
         <div className="hidden lg:flex items-center gap-6">
           {GLOBAL_NAV_ITEMS.map((link) => {
-            const isActive = currentPath === link.href;
+            const linkPath = link.href.split("#")[0];
+            const isActive = currentPath === linkPath;
             return (
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(event) => handleNavClick(event, link.href)}
                 className={`text-sm transition-colors ${
                   isActive
                     ? "text-foreground font-medium"
@@ -72,12 +86,16 @@ export function SiteHeader({ currentPath }: SiteHeaderProps) {
       {mobileOpen && (
         <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 px-4 pb-4">
           {GLOBAL_NAV_ITEMS.map((link) => {
-            const isActive = currentPath === link.href;
+            const linkPath = link.href.split("#")[0];
+            const isActive = currentPath === linkPath;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={closeMenu}
+                onClick={(event) => {
+                  handleNavClick(event, link.href);
+                  closeMenu();
+                }}
                 className={`block w-full text-left py-3 text-sm transition-colors border-b border-border/30 last:border-0 ${
                   isActive
                     ? "text-foreground font-medium"

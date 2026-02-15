@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2 } from "lucide-react";
+import { HoneypotField } from "@/components/honeypot-field";
 
 type InquiryFormProps = {
   selectedTier?: string;
@@ -46,6 +47,7 @@ export function InquiryForm({ selectedTier = "" }: InquiryFormProps) {
           studentCount: formData.get("studentCount") || "",
           message: formData.get("message"),
           selectedTier: formData.get("selectedTier") || "",
+          companyWebsite: formData.get("companyWebsite") || "",
         }),
       });
 
@@ -76,6 +78,7 @@ export function InquiryForm({ selectedTier = "" }: InquiryFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" data-testid="form-inquiry">
+      <HoneypotField />
       {selectedTier && (
         <div>
           <Label htmlFor="selectedTier" className="text-sm font-medium text-foreground">

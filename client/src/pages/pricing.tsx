@@ -17,7 +17,7 @@ function PricingDetails() {
               <h3 className="text-lg font-medium mb-2">How SMS billing works</h3>
               <p className="text-muted-foreground">
                 Each plan includes monthly SMS credits. Messages sent within that allocation are covered by your plan.
-                Additional messages are billed at ?1.50 per SMS.
+                Additional messages are billed at \u20B11.50 per SMS.
               </p>
             </article>
             <article className="rounded-xl border border-border/60 bg-background/40 p-4">
@@ -30,7 +30,7 @@ function PricingDetails() {
             <article className="rounded-xl border border-border/60 bg-background/40 p-4">
               <h3 className="text-lg font-medium mb-2">If you go over SMS credits</h3>
               <p className="text-muted-foreground">
-                Service continues without interruption. Extra usage is added to your monthly billing at ?1.50 per message.
+                Service continues without interruption. Extra usage is added to your monthly billing at \u20B11.50 per message.
               </p>
             </article>
           </div>
@@ -49,10 +49,7 @@ export default function PricingPage() {
 
   const handleSelectTier = (tier: string) => {
     setSelectedTier(tier);
-    const formSection = document.getElementById("pricing-contact");
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    window.location.href = `/products/attendance-monitoring-sms?tier=${encodeURIComponent(tier)}#product-enquiry`;
   };
 
   return (
@@ -62,9 +59,9 @@ export default function PricingPage() {
 
       <main className="relative pt-16">
         <PricingSection
-          title="Attendance software pricing built for schools"
-          description="Choose a plan based on your student population and monthly SMS needs."
-          ctaLabel="Select Plan"
+          title="Pricing"
+          description="Choose a plan based on student population and monthly SMS volume."
+          ctaLabel="Talk to Us"
           onSelectTier={handleSelectTier}
         />
 
