@@ -38,8 +38,7 @@ export default function AboutPage() {
                   <p className="font-semibold text-lg text-foreground mb-1">Charlie Macaraeg</p>
                   <p className="text-sm text-muted-foreground mb-4">Founder &amp; Lead Developer</p>
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    MYO products are built around real workflows, especially for school operations where speed, consistency,
-                    and communication clarity are mission-critical.
+                    MYO products are built around real-world workflows—helping teams automate repetitive work, digitize manual processes, and run operations with more clarity, speed, and consistency.
                   </p>
                 </Card>
               </div>
