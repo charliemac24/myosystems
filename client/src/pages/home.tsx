@@ -17,9 +17,9 @@ const focusAreas = [
 ];
 
 const credibilityPoints = [
-  "Built for private schools in the Philippines",
-  "Focused on operational reliability and clear communication",
-  "Designed with practical onboarding for admin teams",
+  "Built around real-world workflows across education and fabrication operations",
+  "Focused on operational reliability, pricing consistency, and clear communication",
+  "Designed for practical onboarding so teams can adopt tools without heavy disruption",
 ];
 
 export default function Home() {
@@ -46,8 +46,8 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button asChild data-testid="button-home-primary-cta">
-                  <Link href="/products/attendance-monitoring-sms">
-                    View the Product
+                  <Link href="/products">
+                    View Products
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
@@ -103,13 +103,13 @@ export default function Home() {
         <section className="py-16 sm:py-20 bg-card/50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <Card className="p-6 sm:p-8 border-border/40">
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Featured Product Highlight</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Featured Products</h2>
               <p className="text-muted-foreground leading-relaxed mb-6 max-w-3xl">
-                MYO Attendance + SMS Alerts helps schools log entry and exit events quickly and send immediate SMS updates to parents.
-                It is built to reduce admin workload while improving day-to-day visibility.
+                MYO builds focused software products for different operational use cases, from school attendance communication
+                to fabrication quote consistency.
               </p>
               <Button asChild data-testid="button-home-featured-product">
-                <Link href="/products/attendance-monitoring-sms">Open Product Page</Link>
+                <Link href="/products">Open Products Page</Link>
               </Button>
             </Card>
           </div>
@@ -133,12 +133,13 @@ export default function Home() {
 
         <section className="py-16 sm:py-20 bg-card/50">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Explore MYO Attendance + SMS Alerts</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Explore MYO Products</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              See the product page for how the platform works, what schools and parents receive, and the available pricing tiers.
+              Explore both solutions to find the workflow that fits your operations, whether you are managing school
+              attendance communication or fabrication quoting and margin control.
             </p>
             <Button asChild size="lg" data-testid="button-home-closing-cta">
-              <Link href="/products/attendance-monitoring-sms">View the Product</Link>
+              <Link href="/products">View Products</Link>
             </Button>
           </div>
         </section>

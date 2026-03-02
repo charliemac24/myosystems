@@ -21,8 +21,7 @@ export default function ContactPage() {
             <div className="max-w-xl mx-auto">
               <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Contact MYO Systems</h1>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Share your school size, attendance workflow, and communication requirements. We&apos;ll recommend the best
-                setup for MYO Attendance + SMS Alerts.
+                Share your workflow and requirements. We&apos;ll help you choose the right MYO product and onboarding path.
               </p>
 
               <Card className="p-6 sm:p-8 border-border/40 bg-card/70">

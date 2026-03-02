@@ -62,7 +62,6 @@ export function ContactForm({ defaultInquiryType = "" }: ContactFormProps) {
           email: form.get("email"),
           message: form.get("message"),
           inquiryType: inquiryType || form.get("inquiryType") || undefined,
-          selectedTier: form.get("selectedTier") || undefined,
           sourceUrl,
           companyWebsite: form.get("companyWebsite") || "",
         }),
@@ -96,7 +95,6 @@ export function ContactForm({ defaultInquiryType = "" }: ContactFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-5" data-testid="form-contact">
       <HoneypotField />
-      <input type="hidden" name="selectedTier" value={defaultInquiryType} />
       <input type="hidden" name="sourceUrl" value={sourceUrl} />
 
       <div>

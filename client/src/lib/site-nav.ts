@@ -5,8 +5,8 @@ export type NavItem = {
 
 export const GLOBAL_NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Product", href: "/products/attendance-monitoring-sms" },
-  { label: "Pricing", href: "/products/attendance-monitoring-sms#pricing" },
+  { label: "Products", href: "/products" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

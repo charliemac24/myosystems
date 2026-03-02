@@ -1,0 +1,20 @@
+services:
+  myosystems:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: myosystems:prod
+    container_name: myosystems-app
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+    volumes:
+      - myosystems_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  myosystems_data:

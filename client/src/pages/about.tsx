@@ -25,16 +25,16 @@ export default function AboutPage() {
       <main className="relative pt-16">
         <section className="py-20 sm:py-28">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-              <div className="flex flex-col justify-center">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex flex-col justify-center items-center text-center">
                 <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">About MYO Systems</p>
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Built to modernize operations with reliable software.</h1>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
+                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">Built to modernize operations with reliable software.</h1>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-4xl">
                   MYO Systems is focused on practical software products that remove manual operational friction. We design
                   systems that are easy to run, dependable in daily use, and built for long-term maintainability.
                 </p>
 
-                <Card className="p-6 border-border/40">
+                <Card className="p-6 border-border/40 text-center max-w-4xl w-full">
                   <p className="font-semibold text-lg text-foreground mb-1">Charlie Macaraeg</p>
                   <p className="text-sm text-muted-foreground mb-4">Founder &amp; Lead Developer</p>
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -43,13 +43,6 @@ export default function AboutPage() {
                 </Card>
               </div>
 
-              <div className="relative min-h-[360px]">
-                <img
-                  src="/founder.png"
-                  alt="Charlie Macaraeg, Founder and Lead Developer"
-                  className="w-full h-full object-cover object-top rounded-xl"
-                />
-              </div>
             </div>
           </div>
         </section>
