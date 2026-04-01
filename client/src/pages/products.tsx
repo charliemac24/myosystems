@@ -25,22 +25,6 @@ const productCards = [
     href: "/products/attendance-monitoring-sms-alerts",
     blogHref: "/blog/category/schools-attendance-sms",
   },
-  {
-    name: "Margin Guard Quote Engine",
-    description:
-      "A quote estimator for fabrication teams with margin guard controls to reduce underquoting and improve consistency.",
-    audience: ["Fabrication Businesses", "Estimators", "Managers"],
-    benefits: [
-      "Measurement-based quoting workflow",
-      "Cost, labor, and waste-aware calculations",
-      "Margin protection built into estimates",
-      "More consistent pricing decisions",
-      "Optional price override visibility",
-    ],
-    status: "Pilot",
-    href: "/products/margin-guard-quote-engine",
-    blogHref: "/blog/category/fabrication-quoting-margin-control",
-  },
 ];
 
 export default function ProductsPage() {
@@ -60,8 +44,8 @@ export default function ProductsPage() {
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">MYO Systems</p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-foreground mb-6">Products</h1>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                We build practical software for specific workflows. Each product is designed for a distinct audience and
-                operational use case, so teams can adopt faster and run with more clarity.
+                We build practical software for specific workflows. Each product is designed around a clear operational
+                use case so teams can adopt faster and run with more clarity.
               </p>
             </div>
           </div>
@@ -114,10 +98,10 @@ export default function ProductsPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
-                <Link href="/contact">Contact</Link>
+                <Link href="/contact?from=products-overview-page">Contact</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/contact">Request Demo</Link>
+                <Link href="/contact?from=products-overview-page">Request Demo</Link>
               </Button>
             </div>
           </div>

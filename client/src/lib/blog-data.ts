@@ -1,4 +1,4 @@
-export type BlogCategoryKey = "schools-attendance" | "fabrication-quoting";
+export type BlogCategoryKey = "schools-attendance";
 
 export type BlogCategory = {
   key: BlogCategoryKey;
@@ -24,12 +24,6 @@ export const blogCategories: BlogCategory[] = [
     label: "Schools & Attendance",
     slug: "schools-attendance-sms",
     description: "Guides and practical advice for school attendance workflows and parent communication.",
-  },
-  {
-    key: "fabrication-quoting",
-    label: "Fabrication Quoting & Margin Control",
-    slug: "fabrication-quoting-margin-control",
-    description: "Quoting, pricing, and margin insights for fabrication businesses.",
   },
 ];
 
@@ -61,33 +55,6 @@ export const blogArticles: BlogArticle[] = [
     tags: ["Attendance Tracking", "Teacher", "School Admin"],
     publishedAt: "2026-02-24",
   },
-  {
-    slug: "why-fabrication-shops-underquote-jobs",
-    title: "Why fabrication shops underquote jobs",
-    excerpt:
-      "Underquoting usually comes from hidden labor, waste, and inconsistent markups. Break down the main causes and how to protect margins.",
-    category: "fabrication-quoting",
-    tags: ["Fabrication", "Estimating", "Margin Guard"],
-    publishedAt: "2026-02-12",
-  },
-  {
-    slug: "common-excel-quoting-mistakes-in-glass-and-aluminum-fabrication",
-    title: "Common Excel quoting mistakes in glass & aluminum fabrication",
-    excerpt:
-      "Spreadsheet quoting can work until formulas drift and assumptions change. These common mistakes create pricing risk and operational confusion.",
-    category: "fabrication-quoting",
-    tags: ["Glass & Aluminum", "Quotation", "Pricing"],
-    publishedAt: "2026-02-19",
-  },
-  {
-    slug: "how-to-standardize-material-labor-and-waste-calculations",
-    title: "How to standardize material, labor, and waste calculations",
-    excerpt:
-      "Standardized inputs and calculation rules help teams quote faster with fewer pricing surprises. Use this framework to align your estimators.",
-    category: "fabrication-quoting",
-    tags: ["Estimating", "Quotation", "Margin Guard"],
-    publishedAt: "2026-02-27",
-  },
 ];
 
 export function getCategoryByKey(key: BlogCategoryKey): BlogCategory {
@@ -102,28 +69,10 @@ const attendanceTagKeywords = new Set([
   "school admin",
 ]);
 
-const fabricationTagKeywords = new Set([
-  "fabrication quoting & margin control",
-  "quotation",
-  "estimating",
-  "fabrication",
-  "glass & aluminum",
-  "margin guard",
-  "pricing",
-]);
-
 export function isAttendanceRelatedArticle(article: BlogArticle): boolean {
   if (article.category === "schools-attendance") {
     return true;
   }
 
   return article.tags.some((tag) => attendanceTagKeywords.has(tag.toLowerCase()));
-}
-
-export function isFabricationRelatedArticle(article: BlogArticle): boolean {
-  if (article.category === "fabrication-quoting") {
-    return true;
-  }
-
-  return article.tags.some((tag) => fabricationTagKeywords.has(tag.toLowerCase()));
 }

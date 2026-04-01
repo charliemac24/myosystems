@@ -31,7 +31,7 @@ export default function BlogPage() {
       <main className="relative pt-16">
         <BlogHero
           title="Guides & Insights"
-          description="Practical articles, tips, and updates for school attendance operations and fabrication quoting workflows."
+          description="Practical articles, tips, and updates for school attendance operations and parent communication workflows."
         />
 
         <section className="pb-8">
@@ -40,9 +40,6 @@ export default function BlogPage() {
             <Link href="/blog" className="text-primary hover:opacity-90">All Articles page</Link>
             <Link href="/blog/category/schools-attendance-sms" className="text-primary hover:opacity-90">
               Schools &amp; Attendance page
-            </Link>
-            <Link href="/blog/category/fabrication-quoting-margin-control" className="text-primary hover:opacity-90">
-              Fabrication Quoting page
             </Link>
           </div>
         </section>

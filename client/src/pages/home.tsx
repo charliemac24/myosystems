@@ -17,8 +17,8 @@ const focusAreas = [
 ];
 
 const credibilityPoints = [
-  "Built around real-world workflows across education and fabrication operations",
-  "Focused on operational reliability, pricing consistency, and clear communication",
+  "Built around real-world workflows in school administration and parent communication",
+  "Focused on operational reliability, timely notifications, and clear communication",
   "Designed for practical onboarding so teams can adopt tools without heavy disruption",
 ];
 
@@ -35,25 +35,38 @@ export default function Home() {
       <main className="relative pt-16">
         <section className="py-20 sm:py-28">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">MYO Systems</p>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-foreground mb-6">
-                Modern systems that automate operations and improve visibility.
-              </h1>
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-                MYO Systems builds dependable software for organizations that need consistent workflows, clear status tracking,
-                and timely notifications. We help teams replace manual processes with practical digital operations.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Button asChild data-testid="button-home-primary-cta">
-                  <Link href="/products">
-                    View Products
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild data-testid="button-home-secondary-cta">
-                  <Link href="/contact">Contact MYO</Link>
-                </Button>
+            <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="max-w-3xl">
+                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">MYO Systems</p>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-foreground mb-6">
+                  Modern systems that automate operations and improve visibility.
+                </h1>
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
+                  MYO Systems builds dependable software for organizations that need consistent workflows, clear status
+                  tracking, and timely notifications. We help teams replace manual processes with practical digital
+                  operations.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild data-testid="button-home-primary-cta">
+                    <Link href="/products">
+                      View Products
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild data-testid="button-home-secondary-cta">
+                    <Link href="/contact">Contact MYO</Link>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="mx-auto w-full max-w-md lg:max-w-none">
+                <div className="overflow-hidden rounded-2xl border border-border/40 bg-card/40 shadow-[0_20px_80px_rgba(59,130,246,0.18)]">
+                  <img
+                    src="/myofeatured.png"
+                    alt="MYO Systems featured visual"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -105,8 +118,8 @@ export default function Home() {
             <Card className="p-6 sm:p-8 border-border/40">
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Featured Products</h2>
               <p className="text-muted-foreground leading-relaxed mb-6 max-w-3xl">
-                MYO builds focused software products for different operational use cases, from school attendance communication
-                to fabrication quote consistency.
+                MYO builds focused software products for operational use cases where attendance visibility and timely
+                parent communication matter.
               </p>
               <Button asChild data-testid="button-home-featured-product">
                 <Link href="/products">Open Products Page</Link>
@@ -135,8 +148,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Explore MYO Products</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Explore both solutions to find the workflow that fits your operations, whether you are managing school
-              attendance communication or fabrication quoting and margin control.
+              Explore the current MYO product to see whether it fits your attendance and parent communication workflow.
             </p>
             <Button asChild size="lg" data-testid="button-home-closing-cta">
               <Link href="/products">View Products</Link>

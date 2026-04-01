@@ -56,7 +56,3 @@ function BlogCategoryPage({ category }: BlogCategoryPageProps) {
 export function SchoolsAttendanceCategoryPage() {
   return <BlogCategoryPage category="schools-attendance" />;
 }
-
-export function FabricationQuotingCategoryPage() {
-  return <BlogCategoryPage category="fabrication-quoting" />;
-}

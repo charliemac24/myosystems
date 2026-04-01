@@ -26,13 +26,6 @@ export function CategoryFilter({ value, onChange }: CategoryFilterProps) {
         >
           Schools &amp; Attendance
         </Button>
-        <Button
-          variant={value === "fabrication-quoting" ? "default" : "outline"}
-          onClick={() => onChange("fabrication-quoting")}
-          type="button"
-        >
-          Fabrication Quoting &amp; Margin Control
-        </Button>
       </div>
     </div>
   );

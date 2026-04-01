@@ -25,10 +25,13 @@ export function ContactForm({ defaultInquiryType = "" }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
   const [sourceUrl, setSourceUrl] = useState("");
+  const [enquirySource, setEnquirySource] = useState("contact-page");
   const [inquiryType, setInquiryType] = useState(defaultInquiryType);
 
   useEffect(() => {
-    setSourceUrl(window.location.href);
+    const current = new URL(window.location.href);
+    setSourceUrl(current.href);
+    setEnquirySource(current.searchParams.get("from") || (current.pathname === "/contact" ? "contact-page" : "general-page"));
   }, []);
 
   useEffect(() => {
@@ -54,7 +57,7 @@ export function ContactForm({ defaultInquiryType = "" }: ContactFormProps) {
     setSubmitting(true);
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/contact.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -63,13 +66,22 @@ export function ContactForm({ defaultInquiryType = "" }: ContactFormProps) {
           message: form.get("message"),
           inquiryType: inquiryType || form.get("inquiryType") || undefined,
           sourceUrl,
+          enquirySource,
           companyWebsite: form.get("companyWebsite") || "",
         }),
       });
 
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        throw new Error("Contact service is unavailable right now. Please try again later.");
+      }
+
+      const data = await res.json();
       if (!res.ok) {
-        const data = await res.json();
         throw new Error(data.error || "Something went wrong");
+      }
+      if (!data?.success) {
+        throw new Error("Contact service did not confirm submission. Please try again.");
       }
 
       setSubmitted(true);

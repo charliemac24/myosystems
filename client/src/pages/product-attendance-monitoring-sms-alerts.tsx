@@ -42,7 +42,7 @@ export default function AttendanceMonitoringSmsAlertsPage() {
             { icon: BellRing, label: "Real-Time SMS Alerts" },
             { icon: School, label: "Built for Schools" },
           ]}
-          primaryCta={{ label: "Request a Demo", href: "/contact" }}
+          primaryCta={{ label: "Request a Demo", href: "/contact?from=attendance-product-page" }}
           secondaryCta={{ label: "Read Related Articles", href: "/blog/category/schools-attendance-sms" }}
           audience={["Private Schools", "School Administrators", "Teachers", "Parents and Guardians"]}
           audienceIcons={[Building2, UserCog, GraduationCap, Users]}
@@ -70,7 +70,7 @@ export default function AttendanceMonitoringSmsAlertsPage() {
           workflowIcons={[QrCode, ClipboardCheck, MessageSquareText, BarChart3]}
           finalTitle="Ready to modernize attendance and parent communication?"
           finalDescription="Request a walkthrough and we&apos;ll help you evaluate fit, onboarding, and rollout options."
-          finalPrimaryCta={{ label: "Request a Demo", href: "/contact" }}
+          finalPrimaryCta={{ label: "Request a Demo", href: "/contact?from=attendance-product-page" }}
           finalSecondaryCta={{ label: "Read Related Articles", href: "/blog/category/schools-attendance-sms" }}
         />
       </main>
